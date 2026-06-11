@@ -228,7 +228,7 @@ const s = StyleSheet.create({
     elevation: 2,
   },
   logoImage: { width: 56, height: 56, borderRadius: 14 },
-  appName: { fontSize: 26, fontWeight: '700' as const, color: Colors.textDark, letterSpacing: -0.5, marginBottom: 4 },
+  appName: { fontSize: 26, fontWeight: '800' as const, color: Colors.textDark, letterSpacing: -0.5, marginBottom: 4 },
   tagline: { fontSize: 15, color: Colors.textGray },
 
   socialRow: { width: '100%', gap: Spacing.sm, marginBottom: Spacing.lg },

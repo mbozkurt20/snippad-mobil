@@ -20,7 +20,9 @@ function detectAppLang(): Lang {
   try {
     const { getLocales } = require('expo-localization');
     const locale = getLocales()[0]?.languageCode ?? 'tr';
-    return locale === 'tr' ? 'tr' : 'en';
+    if (locale === 'tr') return 'tr';
+    if (locale === 'ar') return 'ar';
+    return 'tr'; // Default to Turkish, not English
   } catch {
     return 'tr';
   }

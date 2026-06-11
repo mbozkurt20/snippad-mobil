@@ -14,13 +14,13 @@ export const colors = {
 } as const;
 
 export const typography = {
-  h1: { fontSize: 28, fontWeight: '700' as const, letterSpacing: -0.6, lineHeight: 33 },
-  h2: { fontSize: 20, fontWeight: '700' as const, letterSpacing: -0.3, lineHeight: 25 },
-  body: { fontSize: 15, fontWeight: '400' as const, lineHeight: 22 },
-  bodyMedium: { fontSize: 15, fontWeight: '600' as const, lineHeight: 22 },
-  caption: { fontSize: 13, fontWeight: '400' as const, lineHeight: 18 },
-  hint: { fontSize: 12, fontWeight: '400' as const, lineHeight: 17 },
-  button: { fontSize: 15, fontWeight: '600' as const },
+  h1: { fontFamily: 'System', fontSize: 28, fontWeight: '800' as const, letterSpacing: -0.6, lineHeight: 33 },
+  h2: { fontFamily: 'System', fontSize: 20, fontWeight: '800' as const, letterSpacing: -0.3, lineHeight: 25 },
+  body: { fontFamily: 'System', fontSize: 15, fontWeight: '400' as const, lineHeight: 22 },
+  bodyMedium: { fontFamily: 'System', fontSize: 15, fontWeight: '600' as const, lineHeight: 22 },
+  caption: { fontFamily: 'System', fontSize: 13, fontWeight: '400' as const, lineHeight: 18 },
+  hint: { fontFamily: 'System', fontSize: 12, fontWeight: '400' as const, lineHeight: 17 },
+  button: { fontFamily: 'System', fontSize: 15, fontWeight: '600' as const },
 };
 
 export const layout = {

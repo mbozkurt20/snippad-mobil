@@ -1,4 +1,10 @@
 // Strict design system tokens — 8 colors only, no interpretation
+
+// System font - clean sans-serif across all platforms
+export const fontFamily = {
+  default: 'System',  // iOS: -apple-system, Android: Roboto
+};
+
 export const colors = {
   primary: '#FF5C00',        // Turuncu — CTA, aktif progress, vurgular
   ink: '#0A0A0A',            // Siyah — ana metin (saf #000 YASAK)
@@ -12,13 +18,15 @@ export const colors = {
 
 export const typography = {
   h1: {
+    fontFamily: fontFamily.default,
     fontSize: 28,
-    fontWeight: '700' as const,
+    fontWeight: '800' as const,
     letterSpacing: -0.6,
     lineHeight: 32,
     textAlign: 'left' as const,
   },
   subtitle: {
+    fontFamily: fontFamily.default,
     fontSize: 14,
     fontWeight: '400' as const,
     letterSpacing: 0,
@@ -27,17 +35,20 @@ export const typography = {
     textAlign: 'left' as const,
   },
   buttonText: {
+    fontFamily: fontFamily.default,
     fontSize: 15,
     fontWeight: '700' as const,
     lineHeight: 20,
   },
   listRow: {
+    fontFamily: fontFamily.default,
     fontSize: 14,
     fontWeight: '600' as const,
     lineHeight: 20,
     color: colors.ink,
   },
   legal: {
+    fontFamily: fontFamily.default,
     fontSize: 12,
     fontWeight: '400' as const,
     lineHeight: 18,

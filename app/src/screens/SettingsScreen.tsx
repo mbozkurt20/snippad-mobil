@@ -926,10 +926,10 @@ const styles = StyleSheet.create({
   },
   menuIconDanger: { backgroundColor: '#FEE2E2' },
   menuIconDisabled: { backgroundColor: Colors.background },
-  menuLabel: { ...Typography.body, color: Colors.textDark },
+  menuLabel: { ...Typography.body, color: Colors.textDark, fontWeight: '600' },
   menuLabelDanger: { color: Colors.danger },
   menuLabelDisabled: { color: Colors.textLight },
-  menuSub: { ...Typography.caption, color: Colors.textGray, marginTop: 1 },
+  menuSub: { ...Typography.caption, color: Colors.textDark, fontWeight: '600', marginTop: 1 },
   menuSubDisabled: { color: Colors.textLight },
   badge: {
     backgroundColor: Colors.primary, borderRadius: BorderRadius.full,
@@ -952,8 +952,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.lg, paddingVertical: Spacing.md,
   },
   themePreview: { width: 28, height: 28, borderRadius: BorderRadius.sm, borderWidth: 1, borderColor: Colors.border },
-  themeLabel: { ...Typography.body, color: Colors.textDark },
-  themeSub: { ...Typography.caption, color: Colors.textGray, marginTop: 1 },
+  themeLabel: { ...Typography.body, color: Colors.textDark, fontWeight: '600' },
+  themeSub: { ...Typography.caption, color: Colors.textDark, fontWeight: '600', marginTop: 1 },
   themeCheck: {
     width: 22, height: 22, borderRadius: BorderRadius.full,
     borderWidth: 2, borderColor: Colors.border, alignItems: 'center', justifyContent: 'center',
