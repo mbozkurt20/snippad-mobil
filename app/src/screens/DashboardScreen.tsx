@@ -151,7 +151,7 @@ export default function DashboardScreen({ navigation }: Props) {
   const hour = new Date().getHours();
   const timeGreeting = hour < 5 ? T.timeGreetingNight : hour < 12 ? T.timeGreetingMorning : hour < 18 ? T.timeGreetingAfternoon : hour < 22 ? T.timeGreetingEvening : T.timeGreetingNight;
   const userName = userSettings.profile.name;
-  const greetingText = userName ? `${timeGreeting}, ${userName.split(' ')[0]}` : timeGreeting;
+  const greetingText = timeGreeting;
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
