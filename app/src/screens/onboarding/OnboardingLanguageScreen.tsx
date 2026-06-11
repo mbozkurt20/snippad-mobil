@@ -33,6 +33,7 @@ export default function OnboardingLanguageScreen({ onNext, onSkip }: Props) {
       total={5}
       showBack={false}
       onSkip={onSkip}
+      balanced
       footer={
         <PrimaryButton
           label="Devam et"

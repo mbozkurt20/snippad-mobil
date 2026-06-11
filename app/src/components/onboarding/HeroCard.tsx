@@ -32,7 +32,7 @@ const s = StyleSheet.create({
     borderRadius: radius.card,
     paddingVertical: 14,
     paddingHorizontal: spacing.md,
-    marginBottom: spacing.lg,
+    marginBottom: 0,
   },
   icon: {
     marginRight: 10,
@@ -44,7 +44,7 @@ const s = StyleSheet.create({
   },
   title: {
     color: colors.surface,
-    fontWeight: '600' as const,
+    fontWeight: '700' as const,
   },
   subtitle: {
     color: '#999999',

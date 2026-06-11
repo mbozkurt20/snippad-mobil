@@ -43,21 +43,20 @@ async function captureOnboarding() {
       await page.screenshot({ path: filepath, fullPage: false });
       console.log(`    ✓ ${filepath}`);
 
-      // Son adıma ulaşıldıysa (Ready screen), "Başla" veya "Giriş Yap" butonu
-      // Diğer adımlarda "Devam et" butonu
-      if (i < 4) {
-        // Devam et butonuna bas
+      // Sonraki adıma geç
+      if (i === 3) {
+        // Keyboard ekranında: "Daha sonra yaparım" linkine tıkla (Ready ekranına geç)
+        const skipLink = await page.$('text="Daha sonra yaparım"');
+        if (skipLink) {
+          await skipLink.click();
+          await page.waitForTimeout(300);
+        }
+      } else if (i < 3) {
+        // Diğer ekranlarda: "Devam et" butonuna tıkla
         const continueBtn = await page.$('text="Devam et"');
         if (continueBtn) {
           await continueBtn.click();
           await page.waitForTimeout(300);
-        } else {
-          // Fallback: ilk turuncu butona bas
-          const button = await page.$('button');
-          if (button) {
-            await button.click();
-            await page.waitForTimeout(300);
-          }
         }
       }
     }

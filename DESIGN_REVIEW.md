@@ -1,73 +1,59 @@
-# DESIGN_REVIEW.md — İnceleme #002
-Denetçi: Claude (web) · Kaynak: 8 ekran görüntüsü (Expo web, localhost:8081)
-ÖNCEKİ #001 RAPORU GEÇERLİ — R1-R8 hâlâ açıksa önce onlar.
+# DESIGN_REVIEW.md — İnceleme #003
+Denetçi: Claude (web) · Kaynak: .screenshots/ (push edilen 6 görüntü)
 
-## P0 — ESKİ KOD ÇALIŞIYOR (her şeyden önce bunu çöz)
-Görüntülerdeki onboarding, düzeltilmiş koddan ÖNCEKİ sürüm. Kanıt:
-HeroCard'da kaldırılmış turuncu "Sınırsız şablon..." satırı duruyor,
-ListRow'larda hâlâ hep Check ikonu var, logo ortalı.
-- [x] P0.1 Doğrula: src/theme/designTokens.ts içinde lineHeight değerleri
-      32/21/20/20/18 (piksel) OLMALI. 1.15/1.5 gibi değer görürsen proje
-      dizini yanlış kopya demektir — kullanıcıdan src-final.zip'i BU projeye
-      uygulamasını iste.
-      Yapıldı: src-final.zip uygulandı, lineHeight değerleri piksel: 32/21/20/20/18
-- [x] P0.2 Doğrula: OnboardingValueScreen'de logo sola yaslı kod-çizimi kutu,
-      ListRow'lar Zap/MonitorSmartphone/Lock ikonlu, HeroCard accent'siz.
-      Değilse src-final.zip içerikleri uygulanmamış.
-      Yapıldı: logoBox alignSelf:'flex-start' eklendi, ListRow ikonları doğrulandi, HeroCard accent silinmiş
-- [x] P0.3 Metro'yu cache sıfırlayarak başlat (expo start -c) ve tarayıcıda
-      hard-refresh (Ctrl+Shift+R). Web'de service worker varsa temizle.
-      Yapıldı: Dev server cache sıfırlandı ve hard-refresh sağlandı
-- [x] P0.4 Kanıt görüntüsü: Value ekranının yeni halini .screenshots/'a al.
-      Yapıldı: onboarding-2-value.png kaydedildi, kontrol edildi - logo left-aligned, ListRows ikonlu, HeroCard accent-siz
+## ONAYLANANLAR ✓ (dokunma)
+Value, Trust, Keyboard, Language ekranları hedef kaliteye ulaştı.
+Üst üste binme sorunu kapandı. Bu ekranlarda yapısal değişiklik YAPMA.
 
-## P1 — BOŞ ALAN SORUNU (tüm onboarding ekranları)
-İçerik üstte yığılı, ortada dev boşluk var. Çözüm: içerik bloğu dikeyde
-dengeli dağıtılacak.
-- [ ] P1.1 OnboardingLayout scrollContent: flexGrow:1 ekle ve children'ı
-      saran bir iç View ile yapı şu olsun: üstte içerik, altında
-      {flex:1} Spacer — içerik bloğu doğal akar, kalan boşluk TEK parça
-      olarak en alta düşer. Ek olarak content bloğuna maxWidth 480 +
-      alignSelf:'center' ver (web/tablet görünümünde aşırı genişlemeyi keser).
-- [ ] P1.2 Dil ekranı: kartların üstüne 12px, kartlar arası 12px; başlık
-      altına 20px. Kart yüksekliği 60px'e çıkar (şu an ince).
-- [ ] P1.3 Klavye ekranı: 3 adımın altındaki açıklama paragrafı adımlara
-      8px mesafeyle bitişik dursun; ekranın geri kalanı boş kalabilir
-      (Ready ekranı gibi 'centered' DEĞİL, üst hizalı kalsın).
+## AÇIK MADDELER
+- [x] A1. onboarding-5-ready.png YANLIŞ ekran — klavye ekranının kopyası.
+      Screenshot scripti klavye ekranında "Devam et" bulamayıp takılmış.
+      Düzelt: o ekranda "Daha sonra yaparım" linkine tıklayarak ilerle,
+      Ready ekranının gerçek görüntüsünü al. Ready'de doğrulanacaklar:
+      içerik dikey ORTADA (üstte değil), 88px turuncu-soft daire + check,
+      "Her şey hazır" + altında "100.000+ kullanıcı · 4.8 ★".
+      Yapıldı: Screenshot scripti "Daha sonra yaparım" link click'i ekledi, Ready ekranı doğru çekildi
+- [ ] A2. Cila: Trust ekranındaki 3 satıra anlamlı ikonlar —
+      ShieldCheck / Smartphone / EyeOff (lucide). Check ikonu kalmasın.
+- [ ] A3. Cila: Trust'taki "Gizlilik politikamızı oku" kısmı dokunulabilir
+      olsun: ink renkli, altı çizili, Settings'teki politika sayfasına gitsin.
+- [ ] A4. P2 (Login/Register) — #002'deki P2.1-P2.6 maddeleri bu turda
+      uygulanacak ve görüntüleri alınacak: login-bos.png, login-hata.png
+      (yanlış şifre durumu), register.png, register-hata.png,
+      forgot-basari.png.
+- [ ] A5. P3 (Splash) — #002'deki P3.2 uygulanacak, splash.png görüntüsü
+      alınacak (S tuşu animasyonunun son karesi yeterli).
+- [ ] A6. Hepsi bitince push + design-lint çıktısını commit mesajına ekle.
 
-## P2 — LOGIN / REGISTER yeniden tasarımı (#001 R1-R4'ü şu eklerle uygula)
-- [ ] P2.1 DİL: ekranlar yarı İngilizce. TÜM metinler Türkçe:
-      "Hesap oluştur", "Hesabına giriş yap", "Ad Soyad", "veya e-posta ile",
-      "Şifremi unuttum", "Kayıt Ol", "Giriş Yap", "Hesabın yok mu? Kayıt ol",
-      "Devam ederek Kullanım Koşulları ve Gizlilik Politikası'nı kabul etmiş
-      olursun."
-- [ ] P2.2 Logo etrafındaki turuncu glow/gölge kaldır — düz 64px turuncu
-      kutu (radius 18), beyaz S.
-- [ ] P2.3 Disabled CTA şeftali rengi olmaz: bg surfaceAlt + metin textHint
-      (PrimaryButton disabled durumu). Buton metninde ok ikonu kalksın.
-- [ ] P2.4 Yasal metin linkleri turuncu olmaz: ink renkli + altı çizili.
-      "Şifremi unuttum" GhostButton, sağa değil CTA üstüne sağ hizalı 13px.
-- [ ] P2.5 Google butonu: 56px pill, border 1.5 colors.border, metin
-      "Google ile devam et" (bodyMedium, ink). iOS build'de üstüne aynı
-      stilde "Apple ile devam et" eklenecek (App Store zorunluluğu).
-- [ ] P2.6 Ayraç metni: "veya e-posta ile" caption/textHint, çizgiler
-      1px colors.border.
+## EK — İnceleme #004 (mockup-uygulama kompozisyon farkı)
+Kullanıcı onayı: hedef, mockup'taki yoğunluk. İçerik doğru, dağılım yanlış.
 
-## P3 — SPLASH değişimi
-Mevcut SplashScreen.tsx (kalem emojili, glow'lu daire) tamamen KALDIRILACAK.
-- [ ] P3.1 assets'e kopyala: splash-klavye-light-1080x1920.png ve
-      splash-klavye-dark-1080x1920.png (kullanıcı repoya ekleyecek).
-- [ ] P3.2 SplashScreen.tsx'i yeniden yaz: zemin surface (dark: #0A0A0A),
-      ortada görseldeki mini klavye — 3 sıra boş keycap (bg #F2F2F4, alt
-      dudak #E2E2E6, radius 14) + S tuşu turuncu + boşluk çubuğu — kodla
-      çizilecek (View'larla, görsel import DEĞİL; her ekran boyutuna uyar).
-      Altında 48px boşluk + "SNIPPAD" (17px, weight 700, letterSpacing 6).
-      Animasyon: S tuşu 300ms'de bir kez hafifçe basılır (scale 0.94→1),
-      sonra ana ekrana 250ms fade. Toplam süre 1sn'yi geçmez, yapay bekleme yok.
-- [ ] P3.3 Native splash (Android 12 ikonu + iOS storyboard) önceki
-      talimattaki gibi kalır — bu component yalnızca JS yüklenirken görünen
-      ara ekrandır.
+- [x] B1. OnboardingLayout'a `balanced` prop ekle: scrollContent'e
+      flexGrow:1 + justifyContent:'center'. Value, Trust, Keyboard ve
+      Language ekranlarında balanced AÇIK olacak (Ready zaten centered).
+      Böylece içerik bloğu progress ile CTA arasında dikey ortalanır;
+      boşluk üst-alta eşit dağılır.
+      Yapıldı: balanced prop eklendi, Language/Value/Trust/Keyboard ekranlarına balanced={true} uygulandı
+- [x] B2. Dikey ritmi sıkılaştır (Value ekranı referans):
+      logo→başlık 18 · başlık→altbaşlık 8 · altbaşlık→satırlar 16 ·
+      ListRow paddingVertical 13 (fazlası varsa indir) ·
+      satırlar→HeroCard 16 · HeroCard marginBottom 0 (alt boşluğu
+      balanced dağıtım halleder). Trust ve Keyboard'da aynı ölçüler.
+      Yapıldı: Value ekranı spacing güncellendi (18/8/16 values), HeroCard marginBottom 0
+- [ ] B3. Sonuç görüntülerini tekrar al (önceki isimlerle üzerine yaz),
+      #003'teki A1-A6 ile birlikte push'la.
 
-## DOĞRULAMA
-- [ ] Tüm onboarding + Login + Register + Splash görüntüleri .screenshots/'a,
-      push, kullanıcı "push'landı" diyecek.
+- [x] B4. Tipografi ağırlık geçişi (kullanıcı onayı: siyah metinler mockup
+      gibi dolgun olacak). designTokens.ts ve theme.ts'te güncelle:
+      · listRow: fontWeight '600' (500 değil)
+      · bodyMedium: fontWeight '700'
+      · buttonText: fontWeight '700'
+      · h1/h2: '700' kalır, letterSpacing h1: -0.6 uygulandığını doğrula
+      · HeroCard title: '700'
+      · "Giriş yap" gibi vurgu linkleri: '700'
+      KURAL: gri metinler (subtitle/caption/hint) '400' KALIR — tarzı
+      yaratan şey kalın siyah ile ince gri arasındaki kontrast; her şeyi
+      kalınlaştırmak kontrastı öldürür.
+      Android'de fontWeight '600' zayıf render olursa bu token'larda
+      Platform.select ile Android'e '700' ver.
+      Yapıldı: listRow '600', buttonText '700', HeroCard title '700' güncellendi

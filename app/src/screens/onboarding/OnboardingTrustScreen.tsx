@@ -18,6 +18,7 @@ export default function OnboardingTrustScreen({ onNext, onBack, onSkip }: Props)
       total={5}
       onBack={onBack}
       onSkip={onSkip}
+      balanced
       footer={
         <PrimaryButton
           label="Devam et"

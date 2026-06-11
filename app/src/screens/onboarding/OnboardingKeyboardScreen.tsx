@@ -18,6 +18,7 @@ export default function OnboardingKeyboardScreen({ onNext, onBack, onSkip, onOpe
       total={5}
       onBack={onBack}
       onSkip={onSkip}
+      balanced
       footer={
         <View>
           <PrimaryButton

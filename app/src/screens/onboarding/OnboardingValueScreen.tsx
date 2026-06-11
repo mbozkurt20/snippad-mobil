@@ -21,6 +21,7 @@ export default function OnboardingValueScreen({ onNext, onBack, onSkip, onLogin 
       total={5}
       onBack={onBack}
       onSkip={onSkip}
+      balanced
       footer={
         <View>
           <PrimaryButton label="Devam et" onPress={onNext} />
@@ -68,17 +69,17 @@ const s = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'flex-start',
-    marginBottom: spacing.lg,
+    marginBottom: 18,
   },
   logoS: {
     fontSize: 26,
     fontWeight: '700' as const,
     color: colors.surface,
   },
-  h1: { ...typography.h1, marginBottom: spacing.xs },
-  subtitle: { ...typography.subtitle, marginBottom: spacing.md },
+  h1: { ...typography.h1, marginBottom: 8 },
+  subtitle: { ...typography.subtitle, marginBottom: 16 },
   features: {
-    marginBottom: spacing.md,
+    marginBottom: 16,
   },
   divider: {
     height: 1,

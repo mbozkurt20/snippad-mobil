@@ -12,6 +12,7 @@ interface Props {
   onSkip?: () => void;
   showBack?: boolean;
   centered?: boolean; // içeriği dikeyde ortala (son ekran)
+  balanced?: boolean; // içeriği dikey ortalı, boşluk üst-alta eşit (Value/Trust/Keyboard/Language)
 }
 
 export default function OnboardingLayout({
@@ -23,6 +24,7 @@ export default function OnboardingLayout({
   onSkip,
   showBack = true,
   centered = false,
+  balanced = false,
 }: Props) {
   return (
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={s.root}>
@@ -36,7 +38,7 @@ export default function OnboardingLayout({
         />
 
         <ScrollView
-          contentContainerStyle={[s.scrollContent, centered && s.centered]}
+          contentContainerStyle={[s.scrollContent, (centered || balanced) && s.centered]}
           showsVerticalScrollIndicator={false}
           style={s.scrollView}
         >

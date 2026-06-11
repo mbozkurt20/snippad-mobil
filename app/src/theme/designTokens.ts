@@ -28,12 +28,12 @@ export const typography = {
   },
   buttonText: {
     fontSize: 15,
-    fontWeight: '600' as const,
+    fontWeight: '700' as const,
     lineHeight: 20,
   },
   listRow: {
     fontSize: 14,
-    fontWeight: '500' as const,
+    fontWeight: '600' as const,
     lineHeight: 20,
     color: colors.ink,
   },
