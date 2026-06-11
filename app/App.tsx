@@ -4,11 +4,15 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import * as Sentry from '@sentry/react-native';
 
 // Initialize Sentry (error tracking)
-Sentry.init({
-  dsn: 'https://your-sentry-dsn@sentry.io/project-id', // TODO: Replace with real DSN
-  debug: false,
-  tracesSampleRate: 0.1,
-});
+// TODO: Set EXPO_PUBLIC_SENTRY_DSN environment variable
+const sentryDsn = process.env.EXPO_PUBLIC_SENTRY_DSN;
+if (sentryDsn) {
+  Sentry.init({
+    dsn: sentryDsn,
+    debug: false,
+    tracesSampleRate: 0.1,
+  });
+}
 
 // Initialize Firebase (must be before using messaging/FCM)
 if (Platform.OS !== 'web') {

@@ -143,8 +143,6 @@ const s = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     height: '100%',
-    background: 'linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 50%, #f3f4f6 100%)',
-    // Fallback for React Native
     backgroundColor: '#f9fafb',
   },
 
