@@ -63,7 +63,7 @@ const s = StyleSheet.create({
   legalText: {
     fontSize: 12,
     color: colors.textHint,
-    lineHeight: 1.5,
+    lineHeight: 18,
     fontWeight: '400' as const,
   },
 });

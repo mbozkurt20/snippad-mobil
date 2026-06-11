@@ -17,25 +17,17 @@ export default function OnboardingReadyScreen({ onNext, onBack }: Props) {
       total={5}
       onBack={onBack}
       showBack={true}
-      footer={
-        <PrimaryButton
-          label="Başlayalım"
-          onPress={onNext}
-        />
-      }
+      centered
+      footer={<PrimaryButton label="Başlayalım" onPress={onNext} />}
     >
       <View style={s.centeredContent}>
-        {/* Check ikonu */}
         <View style={s.checkCircle}>
-          <Check size={48} color={colors.primary} strokeWidth={2} />
+          <Check size={36} color={colors.primary} strokeWidth={2.5} />
         </View>
 
         <Text style={s.h1}>Her şey hazır</Text>
 
-        {/* Sosyal kanıt */}
-        <Text style={s.socialProof}>
-          100.000+ kullanıcı · 4.8 ★
-        </Text>
+        <Text style={s.socialProof}>100.000+ kullanıcı · 4.8 ★</Text>
       </View>
     </OnboardingLayout>
   );
@@ -45,22 +37,19 @@ const s = StyleSheet.create({
   centeredContent: {
     alignItems: 'center',
   },
-
   checkCircle: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 88,
+    height: 88,
+    borderRadius: 44,
     backgroundColor: colors.primarySoft,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: spacing.lg,
+    marginBottom: spacing.xl,
   },
-
-  h1: { ...typography.h1, marginBottom: spacing.md, textAlign: 'center' },
-
+  h1: { ...typography.h1, marginBottom: spacing.xs, textAlign: 'center' },
   socialProof: {
-    fontSize: 12,
-    color: colors.textHint,
+    fontSize: 13,
+    color: colors.textSecondary,
     fontWeight: '500' as const,
     textAlign: 'center',
   },

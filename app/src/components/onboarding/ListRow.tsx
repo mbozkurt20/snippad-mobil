@@ -1,21 +1,22 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Check } from 'lucide-react-native';
+import type { LucideIcon } from 'lucide-react-native';
 import { colors, typography, spacing, radius } from '../../theme/designTokens';
 
 interface Props {
   text: string;
+  icon?: LucideIcon; // verilmezse Check
 }
 
-export default function ListRow({ text }: Props) {
+export default function ListRow({ text, icon }: Props) {
+  const Icon = icon ?? Check;
   return (
-    <View>
-      <View style={s.row}>
-        <View style={s.iconBox}>
-          <Check size={18} color={colors.primary} strokeWidth={2.5} />
-        </View>
-        <Text style={s.text}>{text}</Text>
+    <View style={s.row}>
+      <View style={s.iconBox}>
+        <Icon size={18} color={colors.primary} strokeWidth={2.2} />
       </View>
+      <Text style={s.text}>{text}</Text>
     </View>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Zap, MonitorSmartphone, Lock } from 'lucide-react-native';
 import OnboardingLayout from '../../components/onboarding/OnboardingLayout';
 import ListRow from '../../components/onboarding/ListRow';
 import HeroCard from '../../components/onboarding/HeroCard';
@@ -22,88 +23,78 @@ export default function OnboardingValueScreen({ onNext, onBack, onSkip, onLogin 
       onSkip={onSkip}
       footer={
         <View>
-          <PrimaryButton
-            label="Devam et"
-            onPress={onNext}
-          />
-          <TouchableOpacity onPress={onLogin} style={s.loginLink}>
-            <Text style={s.linkText}>Hesabın var mı? Giriş yap</Text>
+          <PrimaryButton label="Devam et" onPress={onNext} />
+          <TouchableOpacity onPress={onLogin} style={s.loginLink} hitSlop={{ top: 8, bottom: 8 }}>
+            <Text style={s.linkText}>
+              Hesabın var mı? <Text style={s.linkBold}>Giriş yap</Text>
+            </Text>
           </TouchableOpacity>
         </View>
       }
     >
-      {/* Logo */}
-      <View style={s.logoContainer}>
-        <Image
-          source={require('../../../assets/logo.png')}
-          style={s.logo}
-          resizeMode="contain"
-        />
+      {/* Logo — sola yaslı, koddan çizili (asset bağımlılığı yok) */}
+      <View style={s.logoBox}>
+        <Text style={s.logoS}>S</Text>
       </View>
 
-      {/* Başlık */}
-      <Text style={s.h1}>Bir daha yazma. Tek tuşla yapıştır.</Text>
+      <Text style={s.h1}>Bir daha yazma.{'\n'}Tek tuşla yapıştır.</Text>
 
-      {/* Alt başlık */}
       <Text style={s.subtitle}>
-        Hemen yanıt vermek için hazır şablonlarla konuşmayı hızlandır.
+        IBAN, adres ve şablonların her klavyede bir dokunuş uzağında.
       </Text>
 
-      {/* Özellikler */}
       <View style={s.features}>
-        <ListRow text="8 şablon tipi, anında erişim" />
+        <ListRow icon={Zap} text="8 şablon tipi, anında erişim" />
         <View style={s.divider} />
-        <ListRow text="Web ve mobilde senkron" />
+        <ListRow icon={MonitorSmartphone} text="Web ve mobilde senkron" />
         <View style={s.divider} />
-        <ListRow text="Verilerin cihazında, şifreli" />
+        <ListRow icon={Lock} text="Verilerin cihazında, şifreli" />
       </View>
 
-      {/* Hero Card */}
       <HeroCard
-        title="3 gün Business ücretsiz"
-        subtitle="Kart gerekmez. Deneme bitmeden hatırlatırız."
-        accent={<Text style={s.accentText}>Sınırsız şablon · Tüm özellikleri dene</Text>}
+        title="3 gün Business ücretsiz."
+        subtitle="Kart gerekmez. Bitmeden hatırlatırız."
       />
     </OnboardingLayout>
   );
 }
 
 const s = StyleSheet.create({
-  logoContainer: {
-    alignItems: 'center',
-    marginBottom: spacing.lg,
-  },
-  logo: {
+  logoBox: {
     width: 52,
     height: 52,
     borderRadius: 15,
-  },
-
-  h1: { ...typography.h1, marginBottom: spacing.sm },
-  subtitle: { ...typography.subtitle, marginBottom: spacing.lg },
-
-  features: {
+    backgroundColor: colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'flex-start',
     marginBottom: spacing.lg,
+  },
+  logoS: {
+    fontSize: 26,
+    fontWeight: '700' as const,
+    color: colors.surface,
+  },
+  h1: { ...typography.h1, marginBottom: spacing.xs },
+  subtitle: { ...typography.subtitle, marginBottom: spacing.md },
+  features: {
+    marginBottom: spacing.md,
   },
   divider: {
     height: 1,
     backgroundColor: colors.surfaceAlt,
   },
-
-  accentText: {
-    fontSize: 14,
-    fontWeight: '600' as const,
-    color: colors.primary,
-    lineHeight: 1.4,
-  },
-
   loginLink: {
-    marginTop: spacing.md,
+    marginTop: spacing.sm,
     alignItems: 'center',
   },
   linkText: {
-    fontSize: 14,
-    color: colors.textSecondary,
-    fontWeight: '500' as const,
+    fontSize: 13,
+    color: colors.textHint,
+    fontWeight: '400' as const,
+  },
+  linkBold: {
+    color: colors.ink,
+    fontWeight: '600' as const,
   },
 });

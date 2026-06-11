@@ -92,14 +92,14 @@ const s = StyleSheet.create({
     fontSize: 14,
     fontWeight: '500' as const,
     color: colors.ink,
-    lineHeight: 1.5,
+    lineHeight: 21,
     paddingTop: 8,
   },
 
   hint: {
     fontSize: 12,
     color: colors.textHint,
-    lineHeight: 1.5,
+    lineHeight: 18,
   },
 
   skipLink: {

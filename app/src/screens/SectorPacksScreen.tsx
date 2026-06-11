@@ -11,7 +11,6 @@ import { useAlert } from '../components/CustomAlert';
 import { api } from '../store/api';
 import ScreenHeader from '../components/ScreenHeader';
 import { Colors, Spacing, BorderRadius, Typography } from '../theme';
-import { SECTOR_PACKS } from '../constants/sectorPacks';
 
 type Props = { navigation: NativeStackNavigationProp<SettingsStackParamList, 'SectorPacks'> };
 type SectorPack = { id: string; name: string; emoji?: string; description: string; categories: any[] };

@@ -9,7 +9,8 @@ import { useAlert } from '../components/CustomAlert';
 import ScreenHeader from '../components/ScreenHeader';
 import { Colors, BorderRadius, Spacing } from '../theme';
 import { api } from '../store/api';
-import { colors, categoryColors } from '../theme/designTokens';
+
+const ACCENT = '#FF6B00';
 
 interface Props {
   navigation: NativeStackNavigationProp<SettingsStackParamList, 'EmailPreferences'>;
@@ -84,13 +85,13 @@ export default function EmailPreferencesScreen({ navigation }: Props) {
 
       {loading ? (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <ActivityIndicator size="large" color={colors.primary} />
+          <ActivityIndicator size="large" color={ACCENT} />
         </View>
       ) : (
       <ScrollView contentContainerStyle={s.scroll} showsVerticalScrollIndicator={false}>
         {/* Info Banner */}
         <View style={s.banner}>
-          <Mail size={24} color={colors.primary} strokeWidth={1.5} />
+          <Mail size={24} color={ACCENT} strokeWidth={1.5} />
           <View style={{ flex: 1 }}>
             <Text style={s.bannerTitle}>{T.emailPreferences}</Text>
             <Text style={s.bannerText}>{T.emailPreferencesDesc}</Text>
@@ -138,10 +139,10 @@ export default function EmailPreferencesScreen({ navigation }: Props) {
           disabled={loading || saved}
           activeOpacity={0.8}>
           {loading ? (
-            <ActivityIndicator color={colors.surface} size="small" />
+            <ActivityIndicator color="#fff" size="small" />
           ) : saved ? (
             <>
-              <Check size={18} color={colors.surface} strokeWidth={2.5} />
+              <Check size={18} color="#fff" strokeWidth={2.5} />
               <Text style={s.saveBtnText}>{T.emailPreferencesSaved}</Text>
             </>
           ) : (
@@ -165,9 +166,9 @@ function CustomSwitch({ value, onValueChange }: { value: boolean; onValueChange:
     <TouchableOpacity activeOpacity={0.85} onPress={() => onValueChange(!value)}>
       <Animated.View style={{ width: 46, height: 26, borderRadius: 13, backgroundColor: trackColor, justifyContent: 'center' }}>
         <Animated.View style={{
-          width: 20, height: 20, borderRadius: 10, backgroundColor: colors.surface,
+          width: 20, height: 20, borderRadius: 10, backgroundColor: '#fff',
           transform: [{ translateX }],
-          shadowColor: colors.ink, shadowOpacity: 0.15, shadowRadius: 3, shadowOffset: { width: 0, height: 1 }, elevation: 2,
+          shadowColor: '#000', shadowOpacity: 0.15, shadowRadius: 3, shadowOffset: { width: 0, height: 1 }, elevation: 2,
         }} />
       </Animated.View>
     </TouchableOpacity>
@@ -194,7 +195,7 @@ function PreferenceRow({ label, sub, value, onToggle }: RowProps) {
 }
 
 const s = StyleSheet.create({
-  root: { flex: 1, backgroundColor: colors.surfaceAlt },
+  root: { flex: 1, backgroundColor: '#FAFAFA' },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -202,17 +203,17 @@ const s = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: colors.border,
+    borderBottomColor: '#F0F0F0',
   },
   backBtn: { padding: 8 },
   title: { fontSize: 18, fontWeight: '800', color: Colors.textDark, letterSpacing: -0.5 },
   scroll: { paddingHorizontal: 16, paddingVertical: 20, paddingBottom: 40 },
 
   banner: {
-    backgroundColor: colors.primarySoft,
+    backgroundColor: `${ACCENT}12`,
     borderRadius: BorderRadius.lg,
     borderWidth: 1,
-    borderColor: colors.primary,
+    borderColor: `${ACCENT}25`,
     padding: 16,
     flexDirection: 'row',
     alignItems: 'flex-start',
@@ -223,13 +224,13 @@ const s = StyleSheet.create({
   bannerText: { fontSize: 13, color: Colors.textGray, lineHeight: 18, fontWeight: '500' },
 
   card: {
-    backgroundColor: colors.surface,
+    backgroundColor: '#fff',
     borderRadius: BorderRadius.lg,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: '#E5E7EB',
     overflow: 'hidden',
     marginBottom: 24,
-    shadowColor: colors.ink,
+    shadowColor: '#000',
     shadowOpacity: 0.04,
     shadowRadius: 8,
     elevation: 2,
@@ -243,10 +244,10 @@ const s = StyleSheet.create({
   },
   rowLabel: { fontSize: 14, fontWeight: '700', color: Colors.textDark, marginBottom: 4 },
   rowSub: { fontSize: 12, color: Colors.textGray, fontWeight: '500' },
-  sep: { height: 1, backgroundColor: colors.border, marginHorizontal: 16 },
+  sep: { height: 1, backgroundColor: '#F3F4F6', marginHorizontal: 16 },
 
   saveBtn: {
-    backgroundColor: colors.primary,
+    backgroundColor: ACCENT,
     borderRadius: BorderRadius.lg,
     paddingVertical: 14,
     flexDirection: 'row',
@@ -254,12 +255,12 @@ const s = StyleSheet.create({
     justifyContent: 'center',
     gap: 8,
     marginBottom: 20,
-    shadowColor: colors.primary,
+    shadowColor: ACCENT,
     shadowOpacity: 0.2,
     shadowRadius: 8,
     elevation: 4,
   },
   saveBtnDisabled: { opacity: 0.6 },
-  saveBtnSuccess: { backgroundColor: categoryColors[1] },
-  saveBtnText: { fontSize: 14, fontWeight: '800', color: colors.surface, letterSpacing: -0.2 },
+  saveBtnSuccess: { backgroundColor: '#10B981' },
+  saveBtnText: { fontSize: 14, fontWeight: '800', color: '#fff', letterSpacing: -0.2 },
 });

@@ -1,8 +1,6 @@
 // Sektörel hazır şablon paketleri
 // Her sektör: icon, renk, kategoriler, şablonlar
 
-import { categoryColors } from '../theme/designTokens';
-
 export interface SectorTemplate {
   title: string;
   content: string;
@@ -31,7 +29,7 @@ export const SECTOR_PACKS: SectorPack[] = [
     description: 'Müşteri bildirimleri, beyan hatırlatmaları, ödeme talepleri',
     categories: [
       {
-        name: 'Müşteri Bildirimleri', type: 'text', icon: 'file-text', color: categoryColors[0],
+        name: 'Müşteri Bildirimleri', type: 'text', icon: 'file-text', color: '#3B82F6',
         templates: [
           { title: 'Beyan Hatırlatma', content: 'Sayın {müşteri}, {ay} ayına ait KDV beyannamenizin son teslim tarihi {tarih}\'dir. Ekstre ve belgelerinizi lütfen {gün} gün içinde iletiniz.', shortcut: 'bey' },
           { title: 'Ödeme Hatırlatma', content: '{dönem} dönemine ait muhasebe hizmet bedelimiz olan {tutar} TL\'nin hesabımıza aktarılmasını rica ederiz. IBAN: {iban}', shortcut: 'odh' },
@@ -42,7 +40,7 @@ export const SECTOR_PACKS: SectorPack[] = [
         ],
       },
       {
-        name: 'Standart Mesajlar', type: 'text', icon: 'mail', color: categoryColors[8],
+        name: 'Standart Mesajlar', type: 'text', icon: 'mail', color: '#6B7280',
         templates: [
           { title: 'Hoşgeldin', content: 'Muhasebe hizmetlerimizi seçtiğiniz için teşekkürler. Sorularınız için her zaman buradayız.' },
           { title: 'Başarılı Tamamlama', content: '{işlem} başarılı bir şekilde tamamlanmıştır. Bilgiler hesabınızda güncellenmiştir.' },
@@ -58,7 +56,7 @@ export const SECTOR_PACKS: SectorPack[] = [
     description: 'İlan açıklamaları, müşteri bilgilendirme, sözleşme notları',
     categories: [
       {
-        name: 'İlan Şablonları', type: 'text', icon: 'file-text', color: categoryColors[1],
+        name: 'İlan Şablonları', type: 'text', icon: 'file-text', color: '#10B981',
         templates: [
           { title: 'Satılık Daire', content: '🏠 {oda} ODALI {m2}m² {konum}\n✅ {kat}. Kat | Asansör: {asansör} | Isıtma: {ısıtma}\n💰 {fiyat} TL | {tapu} Tapulu\n📞 Bilgi için: {telefon}', shortcut: 'sda' },
           { title: 'Kiralık Daire', content: '🏠 KİRALIK {oda}+1 | {m2}m² | {konum}\n💰 Kira: {kira} TL/ay | Aidat: {aidat} TL\n🔑 Depozito: {depozito} TL\n📞 {telefon}' },
@@ -67,7 +65,7 @@ export const SECTOR_PACKS: SectorPack[] = [
         ],
       },
       {
-        name: 'Müşteri Bildirimleri', type: 'text', icon: 'bell', color: categoryColors[2],
+        name: 'Müşteri Bildirimleri', type: 'text', icon: 'bell', color: '#F59E0B',
         templates: [
           { title: 'Yeni İlan Hatırlatma', content: '{kriterlere} uygun yeni bir mülk buldum! Görmek ister misiniz? Detaylar: {link}' },
           { title: 'Tapu Bilgisi', content: '{mülk} için tapu işlemleri başlatılmıştır. Tapu harcı: {tutar} TL. Randevu: {tarih} {saat}.' },
@@ -83,7 +81,7 @@ export const SECTOR_PACKS: SectorPack[] = [
     description: 'Müvekkil bildirimleri, duruşma hatırlatmaları, hukuki notlar',
     categories: [
       {
-        name: 'Müvekkil Bildirimleri', type: 'text', icon: 'file-text', color: categoryColors[3],
+        name: 'Müvekkil Bildirimleri', type: 'text', icon: 'file-text', color: '#8B5CF6',
         templates: [
           { title: 'Duruşma Hatırlatma', content: 'Sayın {müvekkil}, {dava} dosyanıza ilişkin duruşma {mahkeme}\'de {tarih} günü saat {saat}\'te yapılacaktır.', shortcut: 'dur' },
           { title: 'Karar Bildirimi', content: '{dava} davasında {tarih}\'de {mahkeme} tarafından karar açıklanmıştır. Detaylar için lütfen ofisimizi aramanız ricası.' },
@@ -93,7 +91,7 @@ export const SECTOR_PACKS: SectorPack[] = [
         ],
       },
       {
-        name: 'Standart Mesajlar', type: 'text', icon: 'mail', color: categoryColors[8],
+        name: 'Standart Mesajlar', type: 'text', icon: 'mail', color: '#6B7280',
         templates: [
           { title: 'İlk İş Görüşme', content: 'Davanız hakkında danışmak için toplantımız için teşekkürler. Tüm detayları inceledim.' },
           { title: 'İlerleme Raporu', content: 'Davanız ile ilgili son gelişmeler: {gelişmeler}. Bir sonraki adım {sonraki_adım}. Çok yakında yeniden bize yazacağım.' },
@@ -108,7 +106,7 @@ export const SECTOR_PACKS: SectorPack[] = [
     description: 'Sipariş bildirimleri, ödeme bilgileri, müşteri mesajları',
     categories: [
       {
-        name: 'Müşteri Mesajları', type: 'text', icon: 'file-text', color: categoryColors[2],
+        name: 'Müşteri Mesajları', type: 'text', icon: 'file-text', color: '#F59E0B',
         templates: [
           { title: 'Sipariş Hazır', content: 'Merhaba {müşteri}, {ürün} siparişiniz hazır! Çalışma saatlerimiz: {saat}. Adres: {adres}' },
           { title: 'Ödeme Bilgisi', content: 'Toplam tutar: {tutar} TL\n💳 Havale/EFT: {iban}\n💵 Nakit veya kart ile de ödeme yapabilirsiniz.' },
@@ -118,7 +116,7 @@ export const SECTOR_PACKS: SectorPack[] = [
         ],
       },
       {
-        name: 'İndirim & Kampanya', type: 'text', icon: 'tag', color: categoryColors[4],
+        name: 'İndirim & Kampanya', type: 'text', icon: 'tag', color: '#EC4899',
         templates: [
           { title: 'Özel İndirim', content: '🎉 Sadece bugün! {ürün} için %{indirim} indirim. Son {saat} saat kaldı! Buraya tıklayın: {link}' },
           { title: 'Üye Avantajı', content: 'Üye ol ve ilk alışverişinde %10 indirim kazan! Ayrıca her satın almada puan biriktirebilirsin.' },
@@ -134,7 +132,7 @@ export const SECTOR_PACKS: SectorPack[] = [
     description: 'Randevu bildirimleri, hasta bilgilendirme, reçete notları',
     categories: [
       {
-        name: 'Hasta Mesajları', type: 'text', icon: 'file-text', color: categoryColors[5],
+        name: 'Hasta Mesajları', type: 'text', icon: 'file-text', color: '#EF4444',
         templates: [
           { title: 'Randevu Onayı', content: 'Sayın {hasta}, {tarih} {saat} randevunuz onaylanmıştır. Adres: {adres}. İptal için 24 saat önceden bildiriniz.', shortcut: 'ran' },
           { title: 'Randevu Hatırlatma', content: 'Sayın {hasta}, yarın saat {saat}\'te randevunuz var. Aç karnına gelmek ve {belgeler} getirmeyi unutmayın.' },
@@ -144,7 +142,7 @@ export const SECTOR_PACKS: SectorPack[] = [
         ],
       },
       {
-        name: 'Hasta Eğitimi', type: 'text', icon: 'book', color: categoryColors[6],
+        name: 'Hasta Eğitimi', type: 'text', icon: 'book', color: '#06B6D4',
         templates: [
           { title: 'Sağlık Ipuçları', content: '💡 Sağlık İpucu: {konu} hakkında önemli bilgiler:\n{bilgiler}' },
           { title: 'Beslenme Önerisi', content: '{hastalık} için beslenme önerileri:\n✅ {beslenme_listesi}\n❌ Kaçınılması gerekenler:\n{kaçınılması_gereken}' },
@@ -160,7 +158,7 @@ export const SECTOR_PACKS: SectorPack[] = [
     description: 'Rezervasyon, menü önerileri, promosyonlar',
     categories: [
       {
-        name: 'Müşteri Mesajları', type: 'text', icon: 'file-text', color: categoryColors[7],
+        name: 'Müşteri Mesajları', type: 'text', icon: 'file-text', color: '#F97316',
         templates: [
           { title: 'Rezervasyon Onayı', content: 'Sayın {müşteri}, {kişi} kişi için {tarih} {saat}\'te masanız hazır. Restoran: {adres}. Teşekkürler! 🍽️' },
           { title: 'Menü Önerisi', content: '⭐ Bu haftanın özel menüsü:\n🥘 {yemek1}: {fiyat} TL\n🍲 {yemek2}: {fiyat} TL\n🍝 {yemek3}: {fiyat} TL\nRezervasyon: {telefon}' },
@@ -168,7 +166,7 @@ export const SECTOR_PACKS: SectorPack[] = [
         ],
       },
       {
-        name: 'Promosyon', type: 'text', icon: 'tag', color: categoryColors[4],
+        name: 'Promosyon', type: 'text', icon: 'tag', color: '#EC4899',
         templates: [
           { title: 'Happy Hour', content: '🎉 Happy Hour! {saat} - {saat_bitis} saatleri arasında tüm içeceklerde %{indirim} indirim! Bizi ziyaret etmeyi unutmayın.' },
           { title: 'Paket Menü', content: '{gün} özel günü! {kişi} kişi paket menü: {menü} + {meze} = {fiyat} TL. Sınırlı stok! ⏰' },
@@ -183,7 +181,7 @@ export const SECTOR_PACKS: SectorPack[] = [
     description: 'Personel bildirimleri, özlük işleri, şirket duyuruları',
     categories: [
       {
-        name: 'Personel Bildirimleri', type: 'text', icon: 'file-text', color: categoryColors[6],
+        name: 'Personel Bildirimleri', type: 'text', icon: 'file-text', color: '#06B6D4',
         templates: [
           { title: 'İzin Onayı', content: '{çalışan}, {tarih} - {tarih_bitis} arasındaki {gün} günlük {izin_türü} izniniz onaylanmıştır. Vekiliniz: {vekil}.' },
           { title: 'Bordro Bildirimi', content: '{ay} ayına ait maaş bordronuz hazır. Net: {net} TL. IBAN\'ınıza {tarih}\'de aktarılacaktır.' },
@@ -193,7 +191,7 @@ export const SECTOR_PACKS: SectorPack[] = [
         ],
       },
       {
-        name: 'Şirket Duyuruları', type: 'text', icon: 'megaphone', color: categoryColors[2],
+        name: 'Şirket Duyuruları', type: 'text', icon: 'megaphone', color: '#F59E0B',
         templates: [
           { title: 'Ofis Kapanış', content: '📢 {tarih}\'de {neden} nedeniyle ofisimiz kapıdır. Acil durumlar için: {telefon}' },
           { title: 'Yeni Politika', content: '📋 Yeni {politika_adı} politikası yürürlüğe girmektedir. Detayları paylaşan dökümanı inceleyiniz.' },
@@ -209,7 +207,7 @@ export const SECTOR_PACKS: SectorPack[] = [
     description: 'Bayram tebrik mesajları, özel gün kampanyaları',
     categories: [
       {
-        name: 'Bayram Mesajları', type: 'text', icon: 'gift', color: categoryColors[4],
+        name: 'Bayram Mesajları', type: 'text', icon: 'gift', color: '#EC4899',
         templates: [
           { title: 'Ramazan Bayramı', content: 'Ramazan Bayramınız Mubarek! Sevdiklerinizle huzur dolu günler geçirmeniz dileğiyle... 🌙✨' },
           { title: 'Kurban Bayramı', content: 'Kurban Bayramınız Mübarek! Bayramınızda sağlık, huzur ve mutluluk dileriz. 🐑🎉' },
@@ -219,7 +217,7 @@ export const SECTOR_PACKS: SectorPack[] = [
         ],
       },
       {
-        name: 'Özel Gün Kampanyaları', type: 'text', icon: 'sale', color: categoryColors[1],
+        name: 'Özel Gün Kampanyaları', type: 'text', icon: 'sale', color: '#10B981',
         templates: [
           { title: 'Anneler Günü Kampanyası', content: '💐 Anneler Günü Kampanyası! Tüm {kategori} ürünlerinde %{indirim} indirim. Sevgisini göster: {link}' },
           { title: 'Baba Günü Indirimi', content: '👨 Baba Günü Özel İndirim! {ürün} kategorisinde %{indirim} + Ücretsiz Kargo! {saat} saat kaldı! ⏰' },
@@ -236,7 +234,7 @@ export const SECTOR_PACKS: SectorPack[] = [
     description: 'Öğrenci ve veli bildirimleri, sınıf yönetimi, ödevi hatırlatmaları',
     categories: [
       {
-        name: 'Öğrenci Mesajları', type: 'text', icon: 'file-text', color: categoryColors[6],
+        name: 'Öğrenci Mesajları', type: 'text', icon: 'file-text', color: '#06B6D4',
         templates: [
           { title: 'Ödevi Hatırlatma', content: 'Merhaba {öğrenci}, {tarih}\'e kadar tamamlaması gereken ödev: {ödev_adı}. Başarılar! 📚' },
           { title: 'Sınav Duyurusu', content: '{tarih}\'de {ders} sınavı yapılacaktır. Konular: {konular}. Sınıf notu: 3/B Sınav saati: {saat}' },
@@ -246,7 +244,7 @@ export const SECTOR_PACKS: SectorPack[] = [
         ],
       },
       {
-        name: 'Veli Bildirimleri', type: 'text', icon: 'mail', color: categoryColors[3],
+        name: 'Veli Bildirimleri', type: 'text', icon: 'mail', color: '#8B5CF6',
         templates: [
           { title: 'Not Bildiri', content: '{ay} ayına ait not ortalaması: {not}. Maddeler: {maddeler}. Danışmak istiyorsanız: {telefon}' },
           { title: 'Ders Parası Hatırlatma', content: 'Sayın Veli, {ay} aylık ders ücreti olan {tutar} TL\'nin ödenmesi beklenmektedir.' },
@@ -255,7 +253,7 @@ export const SECTOR_PACKS: SectorPack[] = [
         ],
       },
       {
-        name: 'Sınıf Yönetimi', type: 'text', icon: 'hash', color: categoryColors[2],
+        name: 'Sınıf Yönetimi', type: 'text', icon: 'hash', color: '#F59E0B',
         templates: [
           { title: 'Sınıf Kuralları', content: 'Sevgili öğrenciler, {kural}. Hepimizin uyması gereken önemli kurallar bunlar. 📋' },
           { title: 'Sınıf Temizliği', content: '{tarih}\'de sınıf temizliği yapılacaktır. Sırayla: {grup}. Teşekkürler! 🧹' },

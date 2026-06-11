@@ -10,66 +10,37 @@ export const colors = {
   primarySoft: '#FFF0E8',    // Turuncu zemin — sadece ikon kutuları için
 };
 
-// Sector pack category colors — visual distinction for sector templates
-export const categoryColors = [
-  '#3B82F6', // Blue
-  '#10B981', // Green
-  '#F59E0B', // Amber
-  '#8B5CF6', // Purple
-  '#EC4899', // Pink
-  '#EF4444', // Red
-  '#06B6D4', // Cyan
-  '#F97316', // Orange
-  '#6B7280', // Gray
-  '#6366F1', // Indigo
-  '#0EA5E9', // Sky Blue
-];
-
-// Status feedback colors
-export const statusColors = {
-  success: categoryColors[1],        // Green for success
-  successBg: '#ECFDF5',              // Light green background
-  error: categoryColors[5],          // Red for error
-  errorBg: '#FEF2F2',                // Light red background
-};
-
-// Shadow colors for depth system
-export const shadowColors = {
-  default: colors.ink,           // Default key shadow
-  accentDark: '#782800',         // Dark orange-brown for accent keys
-};
-
 export const typography = {
   h1: {
     fontSize: 28,
     fontWeight: '700' as const,
     letterSpacing: -0.6,
-    lineHeight: 1.15,
+    lineHeight: 32,
     textAlign: 'left' as const,
   },
   subtitle: {
     fontSize: 14,
     fontWeight: '400' as const,
     letterSpacing: 0,
-    lineHeight: 1.5,
+    lineHeight: 21,
     color: colors.textSecondary,
     textAlign: 'left' as const,
   },
   buttonText: {
     fontSize: 15,
     fontWeight: '600' as const,
-    lineHeight: 1.3,
+    lineHeight: 20,
   },
   listRow: {
     fontSize: 14,
     fontWeight: '500' as const,
-    lineHeight: 1.4,
+    lineHeight: 20,
     color: colors.ink,
   },
   legal: {
     fontSize: 12,
     fontWeight: '400' as const,
-    lineHeight: 1.5,
+    lineHeight: 18,
     color: colors.textHint,
   },
 };

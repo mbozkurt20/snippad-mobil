@@ -12,7 +12,6 @@ import ScreenHeader from '../components/ScreenHeader';
 import { api } from '../store/api';
 import { Colors } from '../theme';
 import { useT } from '../i18n';
-import { colors, categoryColors, statusColors } from '../theme/designTokens';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { SettingsStackParamList } from '../types';
 
@@ -187,7 +186,7 @@ export default function BusinessImportScreen({ navigation }: Props) {
 
         {/* Actions */}
         <TouchableOpacity style={s.btn} onPress={pickFile} disabled={loading}>
-          {loading ? <ActivityIndicator color={colors.surface} /> : <Upload size={16} color={colors.surface} />}
+          {loading ? <ActivityIndicator color="#fff" /> : <Upload size={16} color="#fff" />}
           <Text style={s.btnTxt}>{loading ? 'İşleniyor…' : 'Dosya Seç ve İçe Aktar'}</Text>
         </TouchableOpacity>
 
@@ -220,12 +219,12 @@ const s = StyleSheet.create({
   cardTitle:    { fontSize: 13, fontWeight: '600', color: Colors.textDark, marginBottom: 8 },
   hint:         { fontSize: 12, color: Colors.textGray, lineHeight: 18 },
   btn:          { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, backgroundColor: Colors.primary, borderRadius: 12, paddingVertical: 14 },
-  btnTxt:       { color: colors.surface, fontWeight: '600', fontSize: 14 },
-  resultBox:    { backgroundColor: statusColors.successBg, borderRadius: 10, padding: 12, borderWidth: 0.5, borderColor: statusColors.success },
-  resultTxt:    { color: statusColors.success, fontSize: 13, fontWeight: '500' },
-  errorBox:     { backgroundColor: statusColors.errorBg, borderRadius: 10, padding: 12, borderWidth: 0.5, borderColor: statusColors.error },
-  errorTitle:   { color: statusColors.error, fontSize: 13, fontWeight: '600', marginBottom: 6 },
-  errorLine:    { color: statusColors.error, fontSize: 12, lineHeight: 18 },
+  btnTxt:       { color: '#fff', fontWeight: '600', fontSize: 14 },
+  resultBox:    { backgroundColor: '#ECFDF5', borderRadius: 10, padding: 12, borderWidth: 0.5, borderColor: '#6EE7B7' },
+  resultTxt:    { color: '#065F46', fontSize: 13, fontWeight: '500' },
+  errorBox:     { backgroundColor: '#FEF2F2', borderRadius: 10, padding: 12, borderWidth: 0.5, borderColor: '#FECACA' },
+  errorTitle:   { color: '#991B1B', fontSize: 13, fontWeight: '600', marginBottom: 6 },
+  errorLine:    { color: '#B91C1C', fontSize: 12, lineHeight: 18 },
   downloadRow:  { flexDirection: 'row', gap: 10 },
   downloadBtn:  { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6, borderWidth: 1, borderColor: Colors.primary, borderRadius: 10, paddingVertical: 10 },
   downloadTxt:  { color: Colors.primary, fontWeight: '600', fontSize: 13 },

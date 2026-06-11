@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Animated, Easing } from 'react-native';
 import { Colors } from '../theme';
-import { colors } from '../theme/designTokens';
 
 export default function SplashScreen() {
   const rotateAnim = useRef(new Animated.Value(0)).current;
@@ -141,12 +140,12 @@ const s = StyleSheet.create({
   },
 
   gradientBg: {
-    position: 'absolute' as any,
-    width: '100%' as any,
-    height: '100%' as any,
-    background: `linear-gradient(135deg, ${colors.surfaceAlt} 0%, ${colors.border} 50%, ${colors.surfaceAlt} 100%)` as any,
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    background: 'linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 50%, #f3f4f6 100%)',
     // Fallback for React Native
-    backgroundColor: colors.surfaceAlt,
+    backgroundColor: '#f9fafb',
   },
 
   logoContainer: {

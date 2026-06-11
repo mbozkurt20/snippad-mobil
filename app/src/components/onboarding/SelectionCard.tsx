@@ -54,7 +54,7 @@ const s = StyleSheet.create({
   cardSelected: {
     borderWidth: 2,
     borderColor: colors.primary,
-    backgroundColor: colors.primarySoft,
+    backgroundColor: '#FFF7F2', // Soft orange
   },
   content: {
     flex: 1,

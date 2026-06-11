@@ -4,13 +4,14 @@ import OnboardingHeader from './OnboardingHeader';
 import { colors, spacing, insets } from '../../theme/designTokens';
 
 interface Props {
-  children: ReactNode;
+  children?: ReactNode;
   footer?: ReactNode;
   current: number;
   total: number;
   onBack?: () => void;
   onSkip?: () => void;
   showBack?: boolean;
+  centered?: boolean; // içeriği dikeyde ortala (son ekran)
 }
 
 export default function OnboardingLayout({
@@ -21,6 +22,7 @@ export default function OnboardingLayout({
   onBack,
   onSkip,
   showBack = true,
+  centered = false,
 }: Props) {
   return (
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={s.root}>
@@ -34,19 +36,14 @@ export default function OnboardingLayout({
         />
 
         <ScrollView
-          contentContainerStyle={s.scrollContent}
+          contentContainerStyle={[s.scrollContent, centered && s.centered]}
           showsVerticalScrollIndicator={false}
-          scrollEventThrottle={16}
           style={s.scrollView}
         >
           {children}
         </ScrollView>
 
-        {footer && (
-          <View style={s.footer}>
-            {footer}
-          </View>
-        )}
+        {footer && <View style={s.footer}>{footer}</View>}
       </SafeAreaView>
     </KeyboardAvoidingView>
   );
@@ -65,12 +62,14 @@ const s = StyleSheet.create({
     paddingTop: spacing.lg,
     paddingBottom: spacing.xl,
   },
+  centered: {
+    flexGrow: 1,
+    justifyContent: 'center',
+  },
   footer: {
     paddingHorizontal: spacing.horizontalPadding,
     paddingTop: spacing.md,
     paddingBottom: insets.safeAreaBottom + 16,
     backgroundColor: colors.surface,
-    borderTopWidth: 1,
-    borderTopColor: colors.border,
   },
 });

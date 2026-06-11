@@ -111,8 +111,6 @@
 // METRICS — Platform-agnostic measurements
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-import { colors } from '../theme/designTokens';
-
 export const KEYBOARD_METRICS = {
   // ── DIMENSIONS ─────────────────────────────────────────────────────
   screenWidth: 375,
@@ -180,7 +178,7 @@ export const KEYBOARD_METRICS = {
   // ── SHADOWS ────────────────────────────────────────────────────────
   // Keys need a bottom shadow to feel "raised" — especially on dark themes.
   // Without this, keys look like flat labels, not tappable surfaces.
-  shadowColor: colors.ink,
+  shadowColor: '#000000',
   shadowDefault: { opacity: 0.18, radius: 2 }, // Slightly raised vs original 0.15
   shadowSpecial: { opacity: 0.22, radius: 2 }, // Special keys slightly more prominent
   shadowPressed: { opacity: 0.28, radius: 3 }, // Pressed state: deeper shadow = depth

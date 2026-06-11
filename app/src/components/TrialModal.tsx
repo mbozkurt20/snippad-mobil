@@ -5,7 +5,9 @@ import {
 import { Zap, Clock, Lock, Gift } from 'lucide-react-native';
 import { useAppStore } from '../store/useAppStore';
 import { mmkvStorage } from '../store/storage';
-import { colors } from '../theme/designTokens';
+
+const ORANGE = '#FF6B00';
+const DARK   = '#0A0A0A';
 
 interface Props {
   onGoPaywall: () => void;
@@ -62,7 +64,7 @@ export default function TrialModal({ onGoPaywall }: Props) {
 
   const configs = {
     welcome: {
-      icon: <Gift size={44} color={colors.primary} />,
+      icon: <Gift size={44} color={ORANGE} />,
       badge: '3 Günlük Business Deneme Başladı',
       title: 'Her şey açık — ücretsiz deneyin',
       body: 'İmza, takım yönetimi, 29 klavye teması, akıllı değişkenler...\nBu 3 günde Snippad\'ı sonuna kadar kullanın.',
@@ -70,7 +72,7 @@ export default function TrialModal({ onGoPaywall }: Props) {
       dismiss: 'Anladım',
     },
     last_day: {
-      icon: <Clock size={44} color={colors.primary} />,
+      icon: <Clock size={44} color={ORANGE} />,
       badge: 'Denemenizin Son Günü',
       title: 'Bugün son gün!',
       body: 'Business denemeniz bugün bitiyor. Devam etmek için şimdi planınızı seçin ve kesintisiz kullanmaya devam edin.',
@@ -78,7 +80,7 @@ export default function TrialModal({ onGoPaywall }: Props) {
       dismiss: 'Biraz Sonra',
     },
     grace: {
-      icon: <Zap size={44} color={colors.primary} />,
+      icon: <Zap size={44} color={ORANGE} />,
       badge: 'Denemeniz Sona Erdi',
       title: 'Snippad hâlâ sizin için burada',
       body: 'Business denemeniz bitti — ama şablonlarınız güvende. Bugün plan seçerseniz hiçbir şey kaybolmaz.',
@@ -127,27 +129,27 @@ const s = StyleSheet.create({
   },
   card: {
     width: '100%', maxWidth: 360,
-    backgroundColor: colors.ink, borderRadius: 24,
+    backgroundColor: '#111111', borderRadius: 24,
     padding: 28, alignItems: 'center',
-    borderWidth: 1, borderColor: colors.border,
+    borderWidth: 1, borderColor: '#222',
   },
   iconWrap: {
     width: 80, height: 80, borderRadius: 40,
-    backgroundColor: colors.primarySoft, alignItems: 'center', justifyContent: 'center',
+    backgroundColor: '#FF6B0015', alignItems: 'center', justifyContent: 'center',
     marginBottom: 16,
   },
   badge: {
-    backgroundColor: colors.primarySoft, borderRadius: 999, borderWidth: 1, borderColor: colors.primary,
+    backgroundColor: '#FF6B0020', borderRadius: 999, borderWidth: 1, borderColor: '#FF6B0040',
     paddingHorizontal: 12, paddingVertical: 5, marginBottom: 14,
   },
-  badgeText: { fontSize: 12, color: colors.primary, fontWeight: '700' },
-  title:  { fontSize: 20, fontWeight: '800', color: colors.surface, textAlign: 'center', marginBottom: 10, lineHeight: 26 },
-  body:   { fontSize: 14, color: colors.textSecondary, textAlign: 'center', lineHeight: 21, marginBottom: 24 },
+  badgeText: { fontSize: 12, color: ORANGE, fontWeight: '700' },
+  title:  { fontSize: 20, fontWeight: '800', color: '#FFFFFF', textAlign: 'center', marginBottom: 10, lineHeight: 26 },
+  body:   { fontSize: 14, color: '#9CA3AF', textAlign: 'center', lineHeight: 21, marginBottom: 24 },
   ctaBtn: {
-    width: '100%', backgroundColor: colors.primary, borderRadius: 14,
+    width: '100%', backgroundColor: ORANGE, borderRadius: 14,
     paddingVertical: 16, alignItems: 'center', marginBottom: 10,
   },
-  ctaTxt:     { fontSize: 16, fontWeight: '800', color: colors.surface },
+  ctaTxt:     { fontSize: 16, fontWeight: '800', color: '#fff' },
   dismissBtn: { paddingVertical: 8 },
-  dismissTxt: { fontSize: 13, color: colors.textSecondary },
+  dismissTxt: { fontSize: 13, color: '#6B7280' },
 });
