@@ -1,0 +1,97 @@
+{
+  "expo": {
+    "name": "Snippad",
+    "slug": "asistan-klavye",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": false,
+    "updates": {
+      "enabled": true,
+      "checkOnLaunch": "ALWAYS",
+      "fallbackToCacheTimeout": 3000
+    },
+    "runtimeVersion": "1.0.0",
+    "splash": {
+      "image": "./assets/logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFFFFF"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.vertexforge.snippad",
+      "usesAppleSignIn": true,
+      "privacyManifests": {
+        "NSPrivacyAccessedAPITypes": []
+      },
+      "infoPlist": {
+        "NSPasteboardUsageDescription": "Pano geçmişinizi kaydetmek için kullanılır.",
+        "ITSAppUsesNonExemptEncryption": false,
+        "CFBundleURLTypes": [
+          {
+            "CFBundleURLSchemes": [
+              "com.googleusercontent.apps.569048387854-47gc1vbncvq034bhmhbkalul4uitqomc",
+              "snippad"
+            ]
+          }
+        ]
+      },
+      "entitlements": {
+        "com.apple.security.application-groups": [
+          "group.com.klavyem.shared"
+        ]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "tech.vertexforge.snippad",
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.READ_CONTACTS"
+      ],
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": [
+            {
+              "scheme": "com.googleusercontent.apps.569048387854-ricv9pt4a7mfucai8pdflrlndql0fsug"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a634c94f-4001-42a5-835d-567a355ec2f3"
+      }
+    },
+    "owner": "mbozkurt020",
+    "plugins": [
+      "expo-localization",
+      "expo-web-browser",
+      "expo-apple-authentication",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/logo.png",
+          "color": "#FF6B00",
+          "sounds": []
+        }
+      ],
+      "./plugins/withKlavyemKeyboard"
+    ],
+    "scheme": "snippad"
+  }
+}
