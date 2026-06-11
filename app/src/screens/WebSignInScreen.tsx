@@ -65,11 +65,34 @@ export default function WebSignInScreen({ navigation }: Props) {
   // Load code on mount (from MMKV if exists, otherwise from backend)
   React.useEffect(() => {
     const loadCode = async () => {
-      const saved = mmkvStorage.getDeviceCode();
-      if (saved) {
-        setDeviceCode(saved);
-      } else {
-        await generateNewCode(false);
+      try {
+        const saved = mmkvStorage.getDeviceCode();
+        if (saved) {
+          setDeviceCode(saved);
+        } else {
+          // Try /auth/me first
+          await generateNewCode(false);
+        }
+      } catch (e: any) {
+        console.error('loadCode error:', e);
+        // Fallback: try /auth/device-code endpoint directly
+        try {
+          setLoading(true);
+          const res = await api.post<any>('/auth/device-code', { force_new: false });
+          if (res.device_code) {
+            setDeviceCode(res.device_code);
+            mmkvStorage.setDeviceCode(res.device_code);
+          }
+        } catch (e2: any) {
+          console.error('device-code endpoint error:', e2);
+          showAlert({
+            title: 'Hata',
+            message: 'Cihaz kodu alınamadı.',
+            buttons: [{ text: 'Tamam', style: 'default' }],
+          });
+        } finally {
+          setLoading(false);
+        }
       }
     };
     loadCode();
