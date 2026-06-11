@@ -455,7 +455,7 @@ const styles = StyleSheet.create({
     fontSize: 26, fontWeight: '800' as const,
     color: Colors.textDark, letterSpacing: -0.6,
   },
-  subtitle: { fontSize: 13, color: Colors.textGray, fontWeight: '500' },
+  subtitle: { fontSize: 13, color: Colors.textDark, fontWeight: '600' },
   headerRight: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   iconBtn: {
     width: 40, height: 40, borderRadius: 20,
@@ -523,8 +523,8 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 2,
   },
-  bannerTitle: { fontSize: 13, fontWeight: '600' as const, color: Colors.textDark },
-  bannerSub: { fontSize: 11, color: Colors.textGray, marginTop: 1 },
+  bannerTitle: { fontSize: 13, fontWeight: '700' as const, color: Colors.textDark },
+  bannerSub: { fontSize: 11, color: Colors.textDark, fontWeight: '500', marginTop: 1 },
 
   // Stats — Modern Hero
   statsRow: {

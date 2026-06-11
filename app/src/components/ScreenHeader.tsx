@@ -32,7 +32,7 @@ export default function ScreenHeader({
   };
 
   const theme = variantStyles[variant];
-  const subtitleColor = variant === 'deleted' ? Colors.danger : variant === 'warning' ? Colors.warning : Colors.primary;
+  const subtitleColor = variant === 'deleted' ? Colors.danger : variant === 'warning' ? Colors.warning : Colors.textDark;
 
   return (
     <View style={[styles.header, { borderBottomColor: theme.borderColor }]}>
@@ -76,6 +76,6 @@ const styles = StyleSheet.create({
     ...Shadows.button,
   },
   headerContent: { flex: 1 },
-  headerTitle: { ...Typography.h3, color: Colors.primary, fontWeight: '800' },
+  headerTitle: { ...Typography.h3, color: Colors.textDark, fontWeight: '800' },
   headerSubtitle: { ...Typography.label, marginTop: 3 },
 });
