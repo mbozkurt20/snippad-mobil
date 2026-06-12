@@ -17,7 +17,7 @@ type Props = {
   navigation: NativeStackNavigationProp<SettingsStackParamList, 'WebSignIn'>;
 };
 
-const WEB_SIGNIN_URL = 'https://snippad.vertexforge.tech/signin'; // Update with actual URL
+const WEB_SIGNIN_URL = 'https://snippad.tech/signin';
 
 export default function WebSignInScreen({ navigation }: Props) {
   const insets = useSafeAreaInsets();

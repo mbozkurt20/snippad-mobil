@@ -115,7 +115,7 @@ function MenuRow({ Icon, label, danger, onPress, badge, sub, disabled }: {
 
 export default function SettingsScreen({ navigation }: Props) {
   const T = useT();
-  const { userSettings, categories, resetAll, setPremium, setDevPlan, expireTrialNow, logout, syncKeyboardSettings, systemCategoryStates, setSystemCategoryState, setKeyboardLayout: storeSetLayout, setKeyboardLanguage: storeSetLanguage, setKeyboardTheme: storeSetTheme, setKeyboardFontSize: storeSetFontSize, setKeyboardFontFamily: storeSetFontFamily, getPlanLimits, appLanguage, setAppLanguage, teamMembership, getTrialState, trialDaysLeft, loadFromApi } = useAppStore();
+  const { userSettings, categories, resetAll, setPremium, setDevPlan, expireTrialNow, logout, syncKeyboardSettings, systemCategoryStates, setSystemCategoryState, defaultCategories, toggleDefaultCategory, setKeyboardLayout: storeSetLayout, setKeyboardLanguage: storeSetLanguage, setKeyboardTheme: storeSetTheme, setKeyboardFontSize: storeSetFontSize, setKeyboardFontFamily: storeSetFontFamily, getPlanLimits, appLanguage, setAppLanguage, teamMembership, getTrialState, trialDaysLeft, loadFromApi } = useAppStore();
   const trialState = getTrialState();
   const daysLeft   = trialDaysLeft();
   const triggerSync = () => syncKeyboardSettings();

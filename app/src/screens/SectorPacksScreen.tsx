@@ -86,7 +86,16 @@ export default function SectorPacksScreen({ navigation }: Props) {
       />
 
       <ScrollView style={s.scroll} contentContainerStyle={{ paddingVertical: Spacing.lg, paddingBottom: Math.max(insets.bottom, 8) + 100 }}>
-        {SECTOR_PACKS.map((pack, idx) => {
+        {loading ? (
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingVertical: 40 }}>
+            <ActivityIndicator size="large" color={Colors.primary} />
+          </View>
+        ) : packs.length === 0 ? (
+          <View style={{ paddingHorizontal: 16, paddingVertical: 40, alignItems: 'center' }}>
+            <Text style={{ fontSize: 16, color: Colors.textGray, fontWeight: '500' }}>Paket bulunamadı</Text>
+          </View>
+        ) : (
+          packs.map((pack, idx) => {
           const isInstalling = installing === pack.id;
           const isInstalled  = installedPacks.includes(pack.id);
           const color = SECTOR_COLORS[idx % SECTOR_COLORS.length];
@@ -132,7 +141,8 @@ export default function SectorPacksScreen({ navigation }: Props) {
               </View>
             </View>
           );
-        })}
+          })
+        )}
       </ScrollView>
     </SafeAreaView>
   );
